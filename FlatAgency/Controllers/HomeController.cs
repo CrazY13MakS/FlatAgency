@@ -5,13 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FlatAgency.Models;
-
+using FlatAgency.App_Data.DB;
 namespace FlatAgency.Controllers
 {
     public class HomeController : Controller
     {
+        public HomeController()
+        {
+            
+        }
         public IActionResult Index()
         {
+            ViewData["T1"] = new List<String>();
             return View();
         }
 
