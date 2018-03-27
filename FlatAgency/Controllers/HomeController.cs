@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FlatAgency.Models;
 using FlatAgency.App_Data.DB;
+using FlatAgency.App_Data;
+
 namespace FlatAgency.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        IDbAction dbAction;
+        public HomeController(IDbAction db)
         {
-            
+            dbAction = db;
         }
         public IActionResult Index()
-        {
-            ViewData["T1"] = new List<String>();
+        {           
             return View();
         }
 

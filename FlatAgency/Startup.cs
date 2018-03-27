@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FlatAgency.App_Data.DB;
 using Microsoft.EntityFrameworkCore;
+using FlatAgency.App_Data;
 
 namespace FlatAgency
 {
@@ -24,9 +25,10 @@ namespace FlatAgency
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            // добавляем контекст MobileContext в качестве сервиса в приложение
+            // добавляем контекст  в качестве сервиса в приложение
             services.AddDbContext<DB_A37EBA_flatagencyContext>(options =>
                 options.UseSqlServer(connection));
+            services.AddScoped<IDbAction, DbAction>();
             services.AddMvc();
         }
 

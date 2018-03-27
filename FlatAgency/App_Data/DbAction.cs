@@ -17,7 +17,7 @@ namespace FlatAgency.App_Data
             db = context;
         }
 
-        public void DalateFlat(int id)
+        public void DelateFlat(int id)
         {
             try
             {
