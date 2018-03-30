@@ -99,6 +99,30 @@ namespace FlatAgency.App_Data
 
         }
 
+        public List<Models.Flat> GetFlats(int skip, int count)
+        {
+            try
+            {
+                return db.Flat.Skip(skip).Take(count).Select(flat => new Models.Flat()
+                {
+                    Id = flat.FlatId,
+                    Address = $"{flat.Street.Name} {flat.HouseNumber}",
+                    Price = flat.Price,
+                    Class = flat.FlatClass.Name,
+                    DateCreation = flat.DateCreate,
+                    District = flat.Street.District.Name,
+                    Floor = flat.Floor,
+                    Rooms = flat.Rooms,
+                    Square = flat.Square
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debugger.Log(1, "DB Action", ex.Message);
+            }
+            return new List<Models.Flat>();
+        }
+
         public List<Models.Flat> GetFlatsByFilter(int skip, int count, List<Models.District> district, decimal maxprice, decimal minprice, String flatClass)
         {
             try
