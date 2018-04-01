@@ -15,6 +15,7 @@ namespace FlatAgency.App_Data
         void DelateFlat(int id);
         List<Flat> GetTopFlats(int count);
         List<Flat> GetFlatsByFilter(int skip, int count, List<District> district, Decimal maxprice, Decimal minprice, String flatClass);
+        List<Flat> GetFlats(int skip, int count);
 
     }
 }
