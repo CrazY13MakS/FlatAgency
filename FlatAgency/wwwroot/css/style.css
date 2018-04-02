@@ -1726,4 +1726,39 @@ h1, h2, h3, h4, h5, h6, figure {
   opacity: 0;
 }
 
+
+
+.search input{
+  width: 100px;
+  padding: 2px 5px;
+  outline: none;
+  border: 2px solid #A0A0A0;
+  margin-bottom: 10px;
+  border-radius: 10px;  
+}
+.search input:active, .search input:focus {
+  border-color: #4CB648;
+}
+.search label{
+  display: block;
+  color: #118DF0;
+  margin-bottom: 5px;
+}
+.search select{
+  display: block;
+  color: #118DF0;
+  text-align: center;
+}
+.search button{
+  background: transparent;
+  color: #4CB648;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 5px 20px;
+}
+.search button:hover{
+  color: #fff;
+  background: #4CB648;
+}
+
 /*# sourceMappingURL=style.css.map */
