@@ -5,8 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FlatAgency.Models;
-using FlatAgency.App_Data.DB;
 using FlatAgency.App_Data;
+
 
 namespace FlatAgency.Controllers
 {
