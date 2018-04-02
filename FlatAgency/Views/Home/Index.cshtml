@@ -1,12 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "";
 }
 
 
 	<aside id="fh5co-hero" clsas="js-fullheight">
 		<div class="flexslider js-fullheight">
 			<ul class="slides">
-		   	<li style="background-image: url(/images/jk1.jpg);">
+		   	<li style="background-image: url(~/images/jk1.jpg);">
 		   		<div class="container">
 		   			<div class="col-md-12 text-center js-fullheight fh5co-property-brief slider-text">
 		   				<div class="fh5co-property-brief-inner">
@@ -30,7 +30,7 @@
 		   			</div>
 		   		</div>
 		   	</li>
-		   	<li style="background-image: url(/images/slide_2.jpg);">
+		   	<li style="background-image: url(~/images/slide_2.jpg);">
 		   		<div class="container">
 		   			<div class="col-md-12 text-center js-fullheight fh5co-property-brief slider-text">
 		   				<div class="fh5co-property-brief-inner">
@@ -49,7 +49,7 @@
 		   			</div>
 		   		</div>
 		   	</li>
-				<li style="background-image: url(/images/slide_3.jpg);">
+				<li style="background-image: url(~/images/slide_3.jpg);">
 		   		<div class="container">
 		   			<div class="col-md-12 text-center js-fullheight fh5co-property-brief slider-text">
 		   				<div class="fh5co-property-brief-inner">
@@ -81,67 +81,29 @@
 					<h2>We are Offering the Best Real Flat Agency Deals</h2> 
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
 				</div>
-				<div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
-
+					 @foreach(var item in Model)
+            {
+                <span><a href="GirlAlbum?id=@item.TagID">@item.Name</a></span>
+                <div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 
 					<div class="fh5co-property">
 						<figure>
-							<img src="~/images/slide_3.jpg" alt="" class="img-responsive">
+							<img src="images/slide_6.jpg" alt="" class="img-responsive">
 							
 						</figure>
 						<div class="fh5co-property-innter">
-							<h3><a href="#">Villa In Hialeah, Dade County</a></h3>
+							<h3><a href="#">@item.District , @item.Address </a></h3>
 							<div class="price-status">
-		                 	<span class="price">$540,000 </span>
+		                 	<span class="price">@item.Price</span>
 		               </div>
 		               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
 	            	</div>
 	            	<p class="fh5co-property-specification">
-	            		<span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
-	            	</p>
-					</div>
-
-					
-				</div>
-				<div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
-
-					<div class="fh5co-property">
-						<figure>
-							<img src="~/images/slide_2.jpg" alt="" class="img-responsive">
-							
-						</figure>
-						<div class="fh5co-property-innter">
-							<h3><a href="#">15 Apartments Of Type B</a></h3>
-							<div class="price-status">
-		                 	<span class="price">$2,000<span class="per">/month</span> </span>
-		               </div>
-		               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-	            	</div>
-	            	<p class="fh5co-property-specification">
-	            		<span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
-	            	</p>
-					</div>
-					
-				</div>
-				<div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
-
-					<div class="fh5co-property">
-						<figure>
-							<img src="~/images/slide_1.jpg" alt="" class="img-responsive">
-							
-						</figure>
-						<div class="fh5co-property-innter">
-							<h3><a href="#">401 Biscayne Boulevard, Miami</a></h3>
-							<div class="price-status">
-		                 	<span class="price">$1,540,000</span>
-		               </div>
-		               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-	            	</div>
-	            	<p class="fh5co-property-specification">
-	            		<span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
+	            		<span><strong>@item.Square</strong> Sq Ft</span>  <span><strong>@item.Floor</strong> Floor</span>  <span><strong>@item.Rooms</strong> Rooms</span>  
 	            	</p>
 					</div>
 				</div>
+            }
 
 
 			</div>
@@ -151,7 +113,7 @@
 	
 	<div class="fh5co-section-with-image">
 		
-		<img src="~/images/image_1.jpg" alt="" class="img-responsive">
+		<img src="~~/images/image_1.jpg" alt="" class="img-responsive">
 		<div class="fh5co-box animate-box">
 			<h2>Security, Comfort, &amp; Convenience</h2>
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
