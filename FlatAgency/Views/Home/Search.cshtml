@@ -1,3 +1,5 @@
+@using FlatAgency.Models;
+@model List<Flat>
 @{
     ViewData["Title"] = "Search";
 }
@@ -19,13 +21,14 @@
 						<label for="Form-rooms">
 							Rooms
 						</label>
-						<select id="Form-rooms" name="rooms">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select>
+                        <select id="Form-rooms" name="rooms">
+                            <option value="0">Not set</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
 						<label for="Form-minprice">
 							Min Price
 						</label>
@@ -50,9 +53,9 @@
 
             
                 <div class="col-md-10">
-                        @foreach(var item in Model)
+                        @foreach(var item in @Model)
                     {
-                        <span><a href="GirlAlbum?id=@item.TagID">@item.Name</a></span>
+                        @*<span><a href="GirlAlbum?id=@item.TagID">@item.Name</a></span>*@
                         <div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 
                             <div class="fh5co-property">

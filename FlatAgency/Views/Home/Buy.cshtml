@@ -1,3 +1,5 @@
+@using FlatAgency.Models;
+@model List<Flat>
 @{
     ViewData["Title"] = "Buy";
 }
@@ -18,13 +20,13 @@
 					<h2>We are Offering the Best Real Flat Agency Deals</h2>
 				</div>
 				
-                @foreach(var item in Model)
+                @foreach(var item in @Model)
                 {
                     <div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 
 					<div class="fh5co-property">
 						<figure>
-							<img src="~~/images/slide_6.jpg" alt="" class="img-responsive">
+							<img src="~/images/slide_6.jpg" alt="" class="img-responsive">
 							
 						</figure>
 						<div class="fh5co-property-innter">

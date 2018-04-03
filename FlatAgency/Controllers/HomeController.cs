@@ -19,7 +19,7 @@ namespace FlatAgency.Controllers
         }
         public IActionResult Index()
         {           
-            return View();
+            return View(new List<Models.Flat>());
         }
 
         public IActionResult About()
@@ -28,7 +28,18 @@ namespace FlatAgency.Controllers
 
             return View();
         }
+        public IActionResult Search(int rooms=1,int minprice=0, int maxprice=int.MaxValue, int maxsquere=int.MaxValue,int minsquere=0)
+        {
 
+         var res=   dbAction.GetFlatsByFilter(0, 9, new List<Models.District>(), maxprice, minprice, null);
+            return View(res);
+        }
+        public IActionResult Buy()
+        {
+            ViewData["Message"] = "Your contact page.";
+
+            return View(new List<Models.Flat>());
+        }
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
