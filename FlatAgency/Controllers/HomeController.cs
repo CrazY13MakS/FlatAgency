@@ -32,6 +32,8 @@ namespace FlatAgency.Controllers
         {
 
          var res=   dbAction.GetFlatsByFilter(0, 9, new List<Models.District>(), maxprice, minprice, null);
+            ViewData["MaxPrice"] = dbAction.GetMaxPrice();
+            ViewData["MaxSquare"] = dbAction.GetMaxSquare();
             return View(res);
         }
         public IActionResult Buy()

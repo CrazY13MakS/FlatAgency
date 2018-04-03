@@ -36,7 +36,7 @@
 						<label for="Form-maxprice">
 							Max Price
 						</label>
-						<input type="number"  min="0" name="maxprice" id="Form-maxprice">
+						<input type="number"  min="0" max="@ViewData["MaxPrice"]" value="@ViewData["MaxPrice"]" name="maxprice" id="Form-maxprice">
 
 						<label for="Form-minsquere">
 							Min Squere
@@ -45,7 +45,7 @@
 						<label for="Form-maxsquere">
 							Max Squere
 						</label>
-						<input type="number"  min="0" name="maxsquere" id="Form-maxsquere">
+						<input type="number"  min="0" name="maxsquere" max="@ViewData["MaxSquare"]" value="@ViewData["MaxSquare"]" id="Form-maxsquere">
 
 						<button type="submit">Search</button>
 					</form>

@@ -128,7 +128,7 @@ namespace FlatAgency.App_Data
             try
             {
 
-           
+
 
                 var filter = db.Flat.Where(x => x.Price >= minprice && x.Price <= maxprice);
                 if (flatClass != null)
@@ -146,7 +146,7 @@ namespace FlatAgency.App_Data
                 }
 
 
-                return filter.Skip(skip).Take(count).Select(flat=>new Models.Flat()
+                return filter.Skip(skip).Take(count).Select(flat => new Models.Flat()
                 {
                     Id = flat.FlatId,
                     Address = $"{flat.Street.Name} {flat.HouseNumber}",
@@ -157,8 +157,8 @@ namespace FlatAgency.App_Data
                     Floor = flat.Floor,
                     Rooms = flat.Rooms,
                     Square = flat.Square
-                }).ToList(); 
-                    
+                }).ToList();
+
             }
             catch (Exception ex)
             {
@@ -166,6 +166,32 @@ namespace FlatAgency.App_Data
                 Debugger.Log(1, "DB Action", ex.Message);
             }
             return new List<Models.Flat>();
+        }
+
+        public int GetMaxPrice()
+        {
+            try
+            {
+                return (int)db.Flat.Max(x => x.Price);
+            }
+            catch (Exception ex)
+            {
+                Debugger.Log(1, "DB Action", ex.Message);
+            }
+            return int.MaxValue;
+        }
+
+        public double GetMaxSquare()
+        {
+            try
+            {
+                return db.Flat.Max(x => x.Square);
+            }
+            catch (Exception ex)
+            {
+                Debugger.Log(1, "DB Action", ex.Message);
+            }
+            return 20000;
         }
 
         public List<Models.Flat> GetTopFlats(int count)
