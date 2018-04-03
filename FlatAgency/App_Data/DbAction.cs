@@ -69,12 +69,16 @@ namespace FlatAgency.App_Data
         {
 
             try
-            {
+            {         
                 var flat = db.Flat.FirstOrDefault(x => x.FlatId == id);
+               
                 if (flat == null)
                 {
                     return null;
                 }
+                flat.FlatClass = db.FlatClass.FirstOrDefault(x => x.FlatClassId == flat.FlatClassId);
+                flat.Street = db.Street.FirstOrDefault(x => x.StreetId == flat.StreetId);
+                flat.Street.District = db.District.FirstOrDefault(x => x.DistrictId == flat.Street.DistrictId);
                 return new Models.Flat()
                 {
                     Id = flat.FlatId,
@@ -90,7 +94,8 @@ namespace FlatAgency.App_Data
             }
             catch (Exception ex)
             {
-
+                db.FlatClass.Add(new DB.FlatClass() { Name = "Test2 "+ex.Message+ex.Source });
+                db.SaveChanges();
                 Debugger.Log(1, "DB Action", ex.Message);
             }
 
