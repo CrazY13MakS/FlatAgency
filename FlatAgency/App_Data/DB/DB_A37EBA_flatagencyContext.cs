@@ -10,12 +10,18 @@ namespace FlatAgency.App_Data.DB
         public virtual DbSet<Flat> Flat { get; set; }
         public virtual DbSet<FlatClass> FlatClass { get; set; }
         public virtual DbSet<Street> Street { get; set; }
+#if DEBUG
+        public DB_A37EBA_flatagencyContext(String connectionString):base()
+        {
+
+        }
+#endif
         public DB_A37EBA_flatagencyContext(DbContextOptions<DB_A37EBA_flatagencyContext> dbContext) : base(dbContext)
         {
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        {            
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
