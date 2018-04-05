@@ -18,8 +18,10 @@ namespace FlatAgency.Controllers
             dbAction = db;
         }
         public IActionResult Index()
-        {           
-            return View(new List<Models.Flat>());
+        {
+            var res = dbAction.GetTopFlats(6);
+            ViewData["listSecond"] = res.Skip(3).ToList();
+            return View(res.Take(3).ToList());
         }
 
         public IActionResult About()
@@ -36,11 +38,18 @@ namespace FlatAgency.Controllers
             ViewData["MaxSquare"] = dbAction.GetMaxSquare();
             return View(res);
         }
-        public IActionResult Buy()
+        public IActionResult Details(int id)
         {
-            ViewData["Message"] = "Your contact page.";
 
-            return View(new List<Models.Flat>());
+            var res = dbAction.GetFlatById(id);
+            if(res==null)
+            {
+                //string text = System.IO.File.ReadAllText($@"{Environment.CurrentDirectory}\wwwroot\errors\404.html");
+                //return Content(text);
+                return Redirect("~/errors/404.html");
+              //  return   RedirectToPage($@"{Environment.CurrentDirectory}\wwwroot\errors\404.html");
+            }
+            return View(res);
         }
         public IActionResult Contact()
         {

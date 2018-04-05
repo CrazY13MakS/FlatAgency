@@ -1,41 +1,44 @@
+@using FlatAgency.Models;
+@model Flat
 @{
     ViewData["Title"] = "Details";
 }
 
 
 <div class="fh5co-section-with-image">
-		
-
-            <div class="slider slider-for" id="slider-block">
-                <div class="slider-block-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
-                <div class="slider-block-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
-                <div class="slider-block-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
-                <div class="slider-block-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
-            </div>
-		<div class="fh5co-box animate-box">
-			<h2>Security, Comfort, &amp; Convenience</h2>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-            <p class="fh5co-property-specification">
-                <span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
-            </p>
-            <hr>
-             <p class="fh5co-property-specification">
-                <span><strong><a href="tel:+380639995421">+380 639 99 54 21</a></strong></span>
-            </p>
-			<p><a href="#" class="btn btn-primary btn-outline with-arrow"> <i class="icon-arrow-left"></i>  Go back</a></p>
-		</div>
-		
-	</div>
 
 
-  
-    <div class="slider slider-nav">
-         <div class="slider-nav-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
-         <div class="slider-nav-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
-        <div class="slider-nav-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
-        <div class="slider-nav-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
-
+    <div class="slider slider-for" id="slider-block">
+        <div class="slider-block-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
+        <div class="slider-block-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
+        <div class="slider-block-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
+        <div class="slider-block-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
     </div>
+    <div class="fh5co-box animate-box">
+        <h2>Security, Comfort, &amp; Convenience</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
+        <p class="fh5co-property-specification">
+            <span><strong>@Model.Square</strong> Sq Ft</span>  <span><strong>@Model.Floor</strong> Floor</span>  <span><strong>@Model.Rooms</strong> Rooms</span>
+
+        </p>
+        <hr>
+        <p class="fh5co-property-specification">
+            <span><strong><a href="tel:+380639995421">+380 639 99 54 21</a></strong></span>
+        </p>
+        <p><a href="javascript:history.back()" class="btn btn-primary btn-outline with-arrow"> <i class="icon-arrow-left"></i>  Go back</a></p>
+    </div>
+
+</div>
+
+
+
+<div class="slider slider-nav">
+    <div class="slider-nav-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
+    <div class="slider-nav-item" style="background-image:  url(https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);"></div>
+    <div class="slider-nav-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
+    <div class="slider-nav-item" style="background-image:  url(http://prestigebud.com.ua/wp-content/uploads/2017/10/009-2.jpg);"></div>
+
+</div>

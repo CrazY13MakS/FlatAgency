@@ -46,7 +46,14 @@ namespace FlatAgency
             }
 
             app.UseStaticFiles();
-
+            //app.Use(async (context, next) => {
+            //    await next();
+            //    if (context.Response.StatusCode == 404)
+            //    {
+            //        context.Request.Path = "errors/404";
+            //        await next();
+            //    }
+            //});
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

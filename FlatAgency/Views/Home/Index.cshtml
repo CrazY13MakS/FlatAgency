@@ -8,71 +8,36 @@
 <aside id="fh5co-hero" clsas="js-fullheight">
     <div class="flexslider js-fullheight">
         <ul class="slides">
-            <li style="background-image: url(/images/jk1.jpg);">
-                <div class="container">
-                    <div class="col-md-12 text-center js-fullheight fh5co-property-brief slider-text">
-                        <div class="fh5co-property-brief-inner">
-                            <div class="fh5co-box">
+            @for (int i = 0; i < @Model.Count; i++)
+            {
 
-                                <h3><a href="#">Villa In Hialeah, Dade County</a></h3>
-                                <div class="price-status">
-                                    <span class="price">$540,000 </span>
+
+                <li style="background-image: url(/images/jk@(i+1).jpg);">
+                    <div class="container">
+                        <div class="col-md-12 text-center js-fullheight fh5co-property-brief slider-text">
+                            <div class="fh5co-property-brief-inner">
+                                <div class="fh5co-box">
+
+                                    <h3><a asp-controller="Home" asp-action="Details" asp-route-id="@Model[i].Id">   @Model[i].Address</a></h3>
+                                    <div class="price-status">
+                                        <span class="price">$540,000 </span>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
+
+                                    <p class="fh5co-property-specification">
+                                        <span><strong>@Model[i].Square</strong> Sq Ft</span>  <span><strong>@Model[i].Floor</strong> Floor</span>  <span><strong>@Model[i].Rooms</strong> Rooms</span>
+                                    </p>
+
+                                    <p><a asp-controller="Home" asp-action="Details" asp-route-id="@Model[i].Id" class="btn btn-primary">Details</a></p>
+
+
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-
-                                <p class="fh5co-property-specification">
-                                    <span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
-                                </p>
-
-                                <p><a href="#" class="btn btn-primary">Details</a></p>
-
-
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li style="background-image: url(/images/slide_2.jpg);">
-                <div class="container">
-                    <div class="col-md-12 text-center js-fullheight fh5co-property-brief slider-text">
-                        <div class="fh5co-property-brief-inner">
-                            <div class="fh5co-box">
-                                <h3><a href="#">15 Apartments Of Type B</a></h3>
-                                <div class="price-status">
-                                    <span class="price">$2,200<span class="per">/Month</span> </span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-                                <p class="fh5co-property-specification">
-                                    <span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
-                                </p>
-                                <p><a href="#" class="btn btn-primary">Details</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li style="background-image: url(/images/slide_3.jpg);">
-                <div class="container">
-                    <div class="col-md-12 text-center js-fullheight fh5co-property-brief slider-text">
-                        <div class="fh5co-property-brief-inner">
-                            <div class="fh5co-box">
-                                <h3><a href="#">401 Biscayne Boulevard, Miami</a></h3>
-                                <div class="price-status">
-                                    <span class="price">$1,540,000 </span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
-                                <p class="fh5co-property-specification">
-                                    <span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
-                                </p>
-                                <p><a href="#" class="btn btn-primary">Details</a></p>
+                </li>
 
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
+            }
         </ul>
     </div>
 </aside>
@@ -83,18 +48,18 @@
                 <h2>We are Offering the Best Real Flat Agency Deals</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
             </div>
-            @foreach (var item in @Model)
+            @foreach (var item in ViewData["listSecond"] as List<Flat>)
             {
                 @*<span><a href="GirlAlbum?id=@item.TagID">@item.Name</a></span>*@
                 <div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 
                     <div class="fh5co-property">
                         <figure>
-                            <img src="~/images/slide_2.jpg" alt="" class="img-responsive">
+                            <img src="~/images/slide_@(new Random().Next(6)+1)" alt="" class="img-responsive">
 
                         </figure>
                         <div class="fh5co-property-innter">
-                            <h3><a href="#">@item.District , @item.Address </a></h3>
+                            <h3><a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id">@item.District , @item.Address </a></h3>
                             <div class="price-status">
                                 <span class="price">@item.Price</span>
                             </div>

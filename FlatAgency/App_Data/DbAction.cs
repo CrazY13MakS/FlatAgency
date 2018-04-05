@@ -203,27 +203,23 @@ namespace FlatAgency.App_Data
         {
             try
             {
-                List<Models.Flat> result = new List<Models.Flat>();
-
-                var taked = db.Flat.Take(count).OrderByDescending(x => x.Price);
-
-                foreach (var flat in taked)
+                var taked = db.Flat.Take(count).OrderByDescending(x => x.Price).Select(flat=> new Models.Flat()
                 {
-                    result.Add(new Models.Flat()
-                    {
-                        Id = flat.FlatId,
-                        Address = $"{flat.Street.Name} {flat.HouseNumber}",
-                        Price = flat.Price,
-                        Class = flat.FlatClass.Name,
-                        DateCreation = flat.DateCreate,
-                        District = flat.Street.District.Name,
-                        Floor = flat.Floor,
-                        Rooms = flat.Rooms,
-                        Square = flat.Square
-                    });
+                    Id = flat.FlatId,
+                    Address = $"{flat.Street.Name} {flat.HouseNumber}",
+                    Price = flat.Price,
+                    Class = flat.FlatClass.Name,
+                    DateCreation = flat.DateCreate,
+                    District = flat.Street.District.Name,
+                    Floor = flat.Floor,
+                    Rooms = flat.Rooms,
+                    Square = flat.Square
                 }
+                );
 
-                return result;
+
+
+                return taked.ToList();
             }
             catch (Exception ex)
             {
